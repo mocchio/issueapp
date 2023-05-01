@@ -51,8 +51,8 @@ public class IssueController {
     }
 
     // イシュー削除機能
-    @PostMapping("/issue/{id}/delete")
-    public String deleteIssue(@PathVariable long id) {
+    @PostMapping("/issues/{id}/delete")
+    public String deleteIssue(@PathVariable Long id) {
         issueRepository.deleteById(id);
         return "redirect:/";
     }
