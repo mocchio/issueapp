@@ -15,4 +15,9 @@ public interface IssueRepository {
     // issuesテーブルから全件取得
     @Select("select * from issues")
     List<IssueEntity> findAll();
+
+    // findByIdメソッドの定義
+    // idからデータを取得
+    @Select("select * from issues where id = #{id}")
+    IssueEntity findById(long id);
 }
