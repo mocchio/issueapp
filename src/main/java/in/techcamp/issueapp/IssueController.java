@@ -45,8 +45,8 @@ public class IssueController {
 
     // イシュー更新機能
     @PostMapping("/issues/{id}/update")
-    public String updateIssue(@PathVariable lond id, IssueForm issueForm) {
-        issueRepository.update(issueForm.getTitle(), issueForm.getContent(), issueForm.getPeriod(), issueForm.getImportance());
+    public String updateIssue(@PathVariable long id, IssueForm issueForm) {
+        issueRepository.update(id, issueForm.getTitle(), issueForm.getContent(), issueForm.getPeriod(), issueForm.getImportance());
         return "redirect:/";
     }
 }
