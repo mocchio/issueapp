@@ -35,11 +35,18 @@ public class IssueController {
         return "index";
     }
 
-    // イシュー更新機能
+    // イシュー詳細表示機能
     @GetMapping("/issues/{id}")
     public String issueDetail(@PathVariable long id, Model model) {
         var issue = issueRepository.findById(id);
         model.addAttribute("issue", issue);
         return "detail";
+    }
+
+    // イシュー更新機能
+    @PostMapping("/issues/{id}/update")
+    public String updateIssue(@PathVariable lond id, IssueForm issueForm) {
+        issueRepository.update(issueForm.getTitle(), issueForm.getContent(), issueForm.getPeriod(), issueForm.getImportance());
+        return "redirect:/";
     }
 }
