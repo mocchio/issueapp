@@ -49,4 +49,11 @@ public class IssueController {
         issueRepository.update(id, issueForm.getTitle(), issueForm.getContent(), issueForm.getPeriod(), issueForm.getImportance());
         return "redirect:/";
     }
+
+    // イシュー削除機能
+    @PostMapping("/issues/{id}/delete")
+    public String deleteIssue(@PathVariable Long id) {
+        issueRepository.deleteById(id);
+        return "redirect:/";
+    }
 }
